@@ -10,14 +10,7 @@
 <script type="text/javascript" src="./js/app.js"></script>
 </head>
 <body>
-
 <div ng-controller="taskManagerController">
-<h1>  :) </h2> 
-<h2 class="page-title">Task Manager using Spring Boot, Spring Data REST &amp; AngularJS</h2>
-<h4 class="page-title">Demo &amp; Tutorial by <a href="">Priyadarshini</a></h4>
-<a href="c1/respcalc1.html" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">CSS_1</a>
-<a href="c2/respcalc1.html" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">CSS_2</a>
-<a href="DnD/" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">DnD</a>	
 	<div id="task-panel" class="fadein fadeout showpanel panel"  ng-show="toggle">	
 		<div class="panel-heading">
 			<i class="panel-title-icon fa fa-tasks"></i>
@@ -99,6 +92,15 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div id="someLinks">
+<h1>  :) </h2> 
+<h2 class="page-title">Task Manager using Spring Boot, Spring Data REST &amp; AngularJS</h2>
+<h4 class="page-title">Demo &amp; Tutorial by <a href="">Priyadarshini</a></h4>
+<a href="c1/respcalc1.html" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">CSS_1</a>
+<a href="c2/respcalc1.html" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">CSS_2</a>
+<a href="DnD/" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">DnD</a>	
+
 </div>
 </body>
 </html>

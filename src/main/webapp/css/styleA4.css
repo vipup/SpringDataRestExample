@@ -54,7 +54,7 @@
 		padding: 10px 15px;
 	}
 	.panel-title {
-		font-size: 14px;
+		
 		line-height: 20px;
 	}
 	.panel-heading-controls {
@@ -65,8 +65,7 @@
 	.btn-panel {
 		background-color: #f3818d;
 		color: white;
-		margin-top: 0;
-		font-size: 11px;
+		margin-top: 0; 
 		line-height: 12px;
 		padding: 4px 7px;
 		text-align: center;
@@ -82,7 +81,7 @@
 	.btn-panel-big {
 		background-color: #39393d;
 		color: white;
-		font-size: 15px;
+		
 		line-height: 12px;
 		padding: 6px 10px;
 		text-align: center;
@@ -119,8 +118,7 @@
 		right: 20px;
 		display: block;
 		position: relative;
-		margin: 0;
-		font-size: 11px;
+		margin: 0; 
 		line-height: 20px;
 		text-shadow: 0 -1px 0 rgba(0, 0, 0, .2);
 		padding: 0 6px;
@@ -190,7 +188,7 @@
 		display: inline-block;
 		color: #aaa;
 		margin-left: 5px;
-		font-size: 12px;
+		
 		font-style: italic;
 	}
 	.task:after {
@@ -247,7 +245,7 @@
 		box-shadow: 0 0 5px crimson inset, 0 1px 1px crimson;
 		border: 0px;
 		display: inline-block;
-		font-size: 14px;
+		font-size: 3vw;
 		color: white;
 		text-decoration: none !important;
 		padding: 3px 10px;
