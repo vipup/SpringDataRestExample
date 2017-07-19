@@ -1,0 +1,20 @@
+body {
+  padding: 20px;
+}
+div {
+  background: #99ff99;
+  padding: 5px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  width: 0;
+}
+div:after {
+  content: " (supported)";
+}
+div.fail {
+  width: 100% !important;
+  background: #ff6666 !important;
+}
+div.fail:after {
+  content: " (NOT supported)";
+}
