@@ -1,7 +1,7 @@
 <html ng-app="taskManagerApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>AngularJS Task Manager</title>
+<title>pages Task Manager</title>
 <link href='./css/style.css' rel="stylesheet" type="text/css" />
 <link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />

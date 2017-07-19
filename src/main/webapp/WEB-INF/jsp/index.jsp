@@ -1,8 +1,12 @@
 <html ng-app="taskManagerApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>AngularJS Task Manager</title>
+<title>jsp Task Manager</title>
 <link href='./css/style.css' rel="stylesheet" type="text/css" />
+<link href='./css/styleA4.css' rel="stylesheet" type="text/css" />
+<link href='./css/styleA5.css' rel="stylesheet" type="text/css" />
+<link href='./css/styleA6.css' rel="stylesheet" type="text/css" />
+<link href='./css/styleA7.css' rel="stylesheet" type="text/css" />
 <link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 <script data-require="angular.js@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular.js"></script>

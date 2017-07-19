@@ -1,7 +1,7 @@
 <html ng-app="taskManagerApp">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-<title>AngularJS Task Manager</title>
+<title>ROOT  Task Manager</title>
 <link href='./css/style.css' rel="stylesheet" type="text/css" />
 <link href='./css/css/font-awesome.css' rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -12,6 +12,7 @@
 <body>
 
 <div ng-controller="taskManagerController">
+<h1> :) </h2>
 <h2 class="page-title">Task Manager using Spring Boot, Spring Data REST &amp; AngularJS</h2>
 <h4 class="page-title">Demo &amp; Tutorial by <a href="">Priyadarshini</a></h4>
 <a href="http://www.programming-free.com/2014/07/spring-data-rest-with-angularjs-crud.html" class="button-red" style="text-align:center;width:70px;margin-left:45%;margin-right:40%">Tutorial</a>	
