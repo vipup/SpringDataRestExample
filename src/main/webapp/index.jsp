@@ -8,6 +8,11 @@
 <script data-require="angular.js@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular.js"></script>
   <script data-require="angular-animate@*" data-semver="1.3.0-beta.14" src="http://code.angularjs.org/1.3.0-beta.14/angular-animate.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
+<!-- script src="//cdn.jsdelivr.net/pouchdb/6.3.4/pouchdb.min.js"></script>
+ -->
+<script src="db/pouchdb.js"></script>
+<script src="db/base.js"></script>
+<script src="db/app.js"></script>
 </head>
 <body>
 <div ng-controller="taskManagerController">
