@@ -8,10 +8,11 @@
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
-  var db = new PouchDB('todos');
+  var db = new PouchDB('todos'); // ,{adapter: 'memory'}
+  console.log(db.adapter); // prints either 'idb' or 'websql'
 
   // Replace with remote instance, this just replicates to another local instance.
-  var remoteCouch =  "http://127.0.0.1:5984/todosasdf";  // 'todos_remote';
+  var remoteCouch =  "http://10.11.12.1:5984/todosasdf";  // 'todos_remote';
 
   db.changes({
     since: 'now',
