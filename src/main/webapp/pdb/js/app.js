@@ -8,7 +8,9 @@
 
   // EDITING STARTS HERE (you dont need to edit anything above this line)
 
-  var db = new PouchDB('todos'); // ,{adapter: 'memory'}
+  var db = new PouchDB('todos'
+		  
+		  ); // ,{adapter: 'memory'}
   console.log(db.adapter); // prints either 'idb' or 'websql'
 
   // Replace with remote instance, this just replicates to another local instance.
@@ -66,7 +68,13 @@
   // Initialise a sync with the remote server
   function sync() {
     syncDom.setAttribute('data-sync-state', 'syncing');
-    var opts = {live: true};
+    // https://subvisual.co/blog/posts/130-how-to-build-offline-web-applications-with-couchdb-and-pouchdb/
+    var opts = {
+			live : true,
+			heartbeat : true,
+			timeout : 5,
+			retry : true
+	};
     db.replicate.to(remoteCouch, opts, syncError);
     db.replicate.from(remoteCouch, opts, syncError);
   }
