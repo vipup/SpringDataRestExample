@@ -12,7 +12,8 @@
   console.log(db.adapter); // prints either 'idb' or 'websql'
 
   // Replace with remote instance, this just replicates to another local instance.
-  var remoteCouch =  "http://10.11.12.1:5984/todosasdf";  // 'todos_remote';
+  var remoteCouch =  "http://10.11.12.1:5984/todos";  // 'todos_remote';
+  document.getElementById('pageTitle').innerHTML = "todos@"+remoteCouch ;
 
   db.changes({
     since: 'now',
