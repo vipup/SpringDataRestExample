@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:context="http://www.springframework.org/schema/context" 
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:couchbase="http://www.springframework.org/schema/data/couchbase"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans     	http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -13,15 +11,23 @@
 	http://www.springframework.org/schema/data/couchbase     http://www.springframework.org/schema/data/couchbase/spring-couchbase.xsd
 ">
 	<context:component-scan base-package="com.programmingfree.springservice" />
+	<bean id="myCustomTranslationService"
+		class="org.springframework.data.couchbase.core.convert.translation.JacksonTranslationService" />
 
-    <couchbase:cluster>
-        <couchbase:node>localhost</couchbase:node>
-    </couchbase:cluster>
-    <couchbase:clusterInfo login="gesha" password="gesha123" />
- 
-    <couchbase:bucket bucketName="baeldung" bucketPassword=""/>
- 
-    <couchbase:repositories base-package="org.baeldung.spring.data.couchbase"/>
+	<couchbase:indexManager />
+	<couchbase:env id="couchbaseEnv" connectTimeout="20000"
+		computationPoolSize="10" />
+	<couchbase:template translation-service-ref="myCustomTranslationService" />
+
+	<couchbase:cluster>
+		<couchbase:node>localhost</couchbase:node>
+	</couchbase:cluster>
+	<couchbase:clusterInfo login="gesha" password="gesha123" />
+
+	<couchbase:bucket bucketName="baeldung"
+		bucketPassword="" />
+
+	<couchbase:repositories base-package="com.programmingfree.springservice" />
 
 
 </beans>
