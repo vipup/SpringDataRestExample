@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 public interface TaskRepository extends CrudRepository<Task, Integer> {
 	  
 	public List<Task> findByTaskArchived(@Param("archivedfalse") int taskArchivedFalse); 
-	public List<Task> findByTaskStatus(@Param("status") String taskStatus);
+	//public List<Task> findByStatus(@Param("status") String taskStatus);
+	public List<Task> findByTaskStatus(@Param("taskStatus") String taskStatus);
 
 }

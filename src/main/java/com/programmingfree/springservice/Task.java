@@ -7,10 +7,13 @@ import org.springframework.data.couchbase.core.mapping.Document;
 
 import com.couchbase.client.java.repository.annotation.Field;
 
-@Document
+@Document 
 public class Task {
+//    public Task(String taskStatus) {
+//    }
 
     @Id 
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id = (int) (System.currentTimeMillis()%Integer.MAX_VALUE);
 	
     public int getId() {

@@ -2,7 +2,7 @@ var taskManagerModule = angular.module('taskManagerApp', ['ngAnimate']);
 
 taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	
-	var urlBase="/SpringDataRestExample1/tasks";
+	var urlBase="/SpringDataRestExample1/tasks/tasks";
 	$scope.toggle=true;
 	$scope.selection = [];
 	$scope.statuses=['ACTIVE','COMPLETED'];
@@ -10,8 +10,8 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	$http.defaults.headers.post["Content-Type"] = "application/json";
 
     function findAllTasks() {
-        //get all tasks and display initially
-        $http.get(urlBase + '/tasks/search/findByTaskArchived?archivedfalse=0').
+        // get all tasks and display initially
+        $http.get(urlBase + '/search/findByTaskArchived?archivedfalse=0').
             success(function (data) {
                 if (data._embedded != undefined) {
                     $scope.tasks = data._embedded.tasks;
@@ -33,13 +33,13 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 
     findAllTasks();
 
-	//add a new task
+	// add a new task
 	$scope.addTask = function addTask() {
 		if($scope.taskName=="" || $scope.taskDesc=="" || $scope.taskPriority == "" || $scope.taskStatus == ""){
 			alert("Insufficient Data! Please provide values for task name, description, priortiy and status");
 		}
 		else{
-		 $http.post(urlBase + '/tasks', {
+		 $http.post(urlBase  , {
              taskName: $scope.taskName,
              taskDescription: $scope.taskDesc,
              taskPriority: $scope.taskPriority,
@@ -50,7 +50,8 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
              var newTaskUri = headers()["location"];
              console.log("Might be good to GET " + newTaskUri + " and append the task.");
              // Refetching EVERYTHING every time can get expensive over time
-             // Better solution would be to $http.get(headers()["location"]) and add it to the list
+             // Better solution would be to $http.get(headers()["location"])
+				// and add it to the list
              findAllTasks();
 		    });
 		}
@@ -60,10 +61,14 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	  $scope.toggleSelection = function toggleSelection(taskUri) {
 	    var idx = $scope.selection.indexOf(taskUri);
 
+	    taskUri  = ((""+taskUri ).startsWith("http:")||(""+taskUri ).startsWith(urlBase))? taskUri:urlBase+("/"+taskUri );
+	    
 	    // is currently selected
         // HTTP PATCH to ACTIVE state
 	    if (idx > -1) {
-	      $http.patch(taskUri, { taskStatus: 'ACTIVE' }).
+      	  //taskUri  = (""+taskUri ).startsWith(urlBase)? taskUri:urlBase+("/"+taskUri );
+    	  //alert(taskUri);	
+	      $http.patch( taskUri, { taskStatus: 'ACTIVE' }).
 		  success(function(data) {
 		      alert("Task unmarked");
               findAllTasks();
@@ -74,7 +79,9 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	    // is newly selected
         // HTTP PATCH to COMPLETED state
 	    else {
-	      $http.patch(taskUri, { taskStatus: 'COMPLETED' }).
+      	  //taskUri  = (""+taskUri ).startsWith(urlBase)? taskUri:urlBase+("/"+taskUri );
+    	  //alert(taskUri);
+	      $http.patch( taskUri, { taskStatus: 'COMPLETED' }).
 		  success(function(data) {
 			  alert("Task marked completed");
               findAllTasks();
@@ -88,7 +95,9 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	  $scope.archiveTasks = function archiveTasks() {
           $scope.selection.forEach(function(taskUri) {
               if (taskUri != undefined) {
-                  $http.patch(taskUri, { taskArchived: 1});
+            	  taskUri  = ((""+taskUri ).startsWith("http:")||(""+taskUri ).startsWith(urlBase))? taskUri:urlBase+("/"+taskUri );
+            	  //alert(taskUri);
+                  $http.patch( taskUri, { taskArchived: 1});
               }
           });
           alert("Successfully Archived");
@@ -98,7 +107,7 @@ taskManagerModule.controller('taskManagerController', function ($scope,$http) {
 	
 });
 
-//Angularjs Directive for confirm dialog box
+// Angularjs Directive for confirm dialog box
 taskManagerModule.directive('ngConfirmClick', [
 	function(){
          return {
