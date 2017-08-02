@@ -1,44 +1,131 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>SpringDataRestExample1</groupId>
-  <artifactId>SpringDataRestExample1</artifactId>
-  <packaging>war</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>SpringDataRestExample</name>
-  <url>http://maven.apache.org</url>
-  <dependencies>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>SpringDataRestExample1</groupId>
+	<artifactId>SpringDataRestExample1</artifactId>
+	<packaging>war</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>SpringDataRestExample</name>
+	<url>http://maven.apache.org</url>
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-framework.version>4.3.4.RELEASE</spring-framework.version>
+        <spring-data-couchbase.version>2.1.5.RELEASE</spring-data-couchbase.version>
+        <hibernate-validator.version>5.3.3.Final</hibernate-validator.version>
+        <joda-time.version>2.9.6</joda-time.version>
+		<!-- logging -->
+		<org.slf4j.version>1.7.21</org.slf4j.version>
+		<logback.version>1.1.7</logback.version>
+		<!-- TEST -->
+		<junit.version>4.12</junit.version>
+		<org.hamcrest.version>1.3</org.hamcrest.version>
+		<mockito.version>1.10.19</mockito.version>        
+    </properties>
+	<dependencies>
+        <!-- Spring Context and Couchbase Peristence -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-framework.version}</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-logging</artifactId>
+                    <groupId>commons-logging</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring-framework.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-couchbase</artifactId>
+            <version>${spring-data-couchbase.version}</version>
+        </dependency>
 
+        <!-- Hibernate JSR-303 Bean Validation -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>${joda-time.version}</version>
+        </dependency>
+
+        <!-- Test-Scoped Dependencies -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-framework.version}</version>
+            <scope>test</scope>
+        </dependency>
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-jpa</artifactId>
-			<version>1.9.0.RELEASE</version>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>tomcat-maven-plugin</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
 		</dependency>
-
+		
+		
+		<!-- logging -->
 		<dependency>
-			<groupId>org.springframework.data</groupId>
-			<artifactId>spring-data-rest-webmvc</artifactId>
-			<version>2.3.2.RELEASE</version>
-		</dependency>
-
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.36</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.3.6.Final</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.6.Final</version>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
 		</dependency>
-
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-core</artifactId>
+			<version>${org.hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-library</artifactId>
+			<version>${org.hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>${org.hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>		
 	</dependencies>
 
 	<build>
@@ -53,7 +140,7 @@
 
 				</configuration>
 			</plugin>
-				
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
@@ -61,19 +148,30 @@
 				<configuration>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
-					
+
 				</configuration>
-				
+
 			</plugin>
-			   <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-                <source>1.8</source>
-                <target>1.8</target>
-            </configuration>
-        </plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
 		</plugins>
 		<finalName>SpringDataRestExample</finalName>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>spring-libs-release</id>
+			<name>Spring Releases</name>
+			<url>https://repo.spring.io/libs-release</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
 </project>

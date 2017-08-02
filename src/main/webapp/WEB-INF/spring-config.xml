@@ -2,36 +2,26 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:context="http://www.springframework.org/schema/context" 
 	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:couchbase="http://www.springframework.org/schema/data/couchbase"
 	xsi:schemaLocation="
 	http://www.springframework.org/schema/beans     	http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/data/jpa    	http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
     http://www.springframework.org/schema/context 		http://www.springframework.org/schema/context/spring-context-3.0.xsd
 	http://www.springframework.org/schema/tx 			http://www.springframework.org/schema/tx/spring-tx.xsd
-"> 
-<context:component-scan base-package="com.programmingfree.springservice" /> 
-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://ed:3306/taskmanager"/>
-        <property name="username" value="tm"/>
-        <property name="password" value="gesha123"/>
-    </bean>
+	http://www.springframework.org/schema/data/couchbase     http://www.springframework.org/schema/data/couchbase/spring-couchbase.xsd
+">
+	<context:component-scan base-package="com.programmingfree.springservice" />
 
-    <bean id="jpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-        <property name="showSql" value="true"/>
-        <property name="generateDdl" value="true"/>
-        <property name="database" value="MYSQL"/>
-    </bean>
+    <couchbase:cluster>
+        <couchbase:node>localhost</couchbase:node>
+    </couchbase:cluster>
+    <couchbase:clusterInfo login="baeldung" password="" />
+ 
+    <couchbase:bucket bucketName="baeldung" bucketPassword=""/>
+ 
+    <couchbase:repositories base-package="org.baeldung.spring.data.couchbase"/>
 
-    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
-        <property name="jpaVendorAdapter" ref="jpaVendorAdapter"/>
-        <property name="packagesToScan" value="com.programmingfree.springservice"/>
-    </bean>
-
-    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager"/>
-    <tx:annotation-driven/> 
-    <jpa:repositories base-package="com.programmingfree.springservice" />
 
 </beans>

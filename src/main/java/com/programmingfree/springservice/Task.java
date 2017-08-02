@@ -1,34 +1,37 @@
 package com.programmingfree.springservice;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="task_list")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.couchbase.core.mapping.Document;
+
+import com.couchbase.client.java.repository.annotation.Field;
+
+@Document
 public class Task {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="task_id")
+    @Id 
+    @NotNull
 	private int id;
 	
-	@Column(name="task_name")
+    @Field
+    @NotNull
 	private String taskName;
 	
-	@Column(name="task_description")
+    @Field
+    @NotNull
 	private String taskDescription;
 	
-	@Column(name="task_priority")
+    @Field
+    @NotNull
 	private String taskPriority;
 	
-	@Column(name="task_status")
+    @Field
+    @NotNull
 	private String taskStatus;
 	
-	@Column(name="task_archived")
+    @Field
+    @NotNull
 	private int taskArchived = 0;
 
 	public int getTaskId() {
