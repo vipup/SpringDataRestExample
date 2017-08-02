@@ -17,7 +17,7 @@
     <couchbase:cluster>
         <couchbase:node>localhost</couchbase:node>
     </couchbase:cluster>
-    <couchbase:clusterInfo login="baeldung" password="" />
+    <couchbase:clusterInfo login="gesha" password="gesha123" />
  
     <couchbase:bucket bucketName="baeldung" bucketPassword=""/>
  

@@ -18,11 +18,11 @@ public class Config extends AbstractCouchbaseConfiguration {
 
     @Override
     protected String getBucketName() {
-        return "default";
+        return "gesha";
     }
 
     @Override
     protected String getBucketPassword() {
-        return "";
+        return "gesha123";
     }
 }
