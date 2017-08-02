@@ -18,8 +18,6 @@
 	<resources mapping="/c1/**" location="/c1/" />
 	<resources mapping="/c2/**" location="/c2/" />
 	<resources mapping="/DnD/**" location="/DnD/" /> 
-	<resources mapping="/pdb/**" location="/pdb/" />
- 
-
+	<resources mapping="/pdb/**" location="/pdb/" />  
 </beans:beans>
 	

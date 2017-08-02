@@ -11,10 +11,21 @@ import com.couchbase.client.java.repository.annotation.Field;
 public class Task {
 
     @Id 
-    @NotNull
-	private int id;
+	private int id = (int) (System.currentTimeMillis()%Integer.MAX_VALUE);
 	
-    @Field
+    public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getTaskArchived() {
+		return taskArchived;
+	}
+
+	@Field
     @NotNull
 	private String taskName;
 	
