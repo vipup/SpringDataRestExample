@@ -11,7 +11,7 @@
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-framework.version>4.3.9.RELEASE</spring-framework.version>
-		<spring-data-rest-webmvc.version>2.3.2.RELEASE</spring-data-rest-webmvc.version>
+		<spring-data-rest-webmvc.version>2.2.2.RELEASE</spring-data-rest-webmvc.version>
 		<spring-data-couchbase.version>2.1.5.RELEASE</spring-data-couchbase.version>
 		<hibernate-validator.version>5.3.3.Final</hibernate-validator.version>
 		<joda-time.version>2.9.6</joda-time.version>
