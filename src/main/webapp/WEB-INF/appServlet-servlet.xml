@@ -19,5 +19,7 @@
 	<resources mapping="/c2/**" location="/c2/" />
 	<resources mapping="/DnD/**" location="/DnD/" /> 
 	<resources mapping="/pdb/**" location="/pdb/" />  
+	<resources mapping="/cdb/**" location="/cdb/" />  
+	<resources mapping="/jdb/**" location="/jdb/" />  
 </beans:beans>
 	
